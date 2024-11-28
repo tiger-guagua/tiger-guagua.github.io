@@ -2,9 +2,248 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>你好，GitHub</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=yes">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://64.media.tumblr.com/7c60185bd2569e29fe44b2a7f8a49f72/tumblr_pn3ja1C52q1ubc65j_400.jpg">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <title>現場活動異常排除</title>
     </head>
-    <body>
-        <h1>覺得厲害</h1>
+    <style>
+        .bg-color {
+            background-color: antiquewhite;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        .last-layer-content {
+            background-color: antiquewhite;
+        }
+    </style>
+    <body class="bg-color">
+        <div class="container">
+            <h2 class="mb-2">現場活動問題集</h2>
+            <h3 class="mb-3">請選擇問題的類型：</h3>
+            <div class="accordion" id="layer-1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e-verification">
+                            電子驗票
+                        </button>
+                    </h2>
+                    <div id="e-verification" class="accordion-collapse collapse" data-bs-parent="#layer-1">
+                        <div class="accordion-body">
+                            <div class="accordion" id="e-verification-layer-2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#QR-code">
+                                            QRcode 掃不過
+                                        </button>
+                                    </h2>
+                                    <div id="QR-code" class="accordion-collapse collapse" data-bs-parent="#e-verification-layer-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion" id="QR-code-layer-3">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#re-print">
+                                                            票已列印過但訂單被<code>刪掉重訂</code>或是<code>分割</code>
+                                                        </button>
+                                                    </h2>
+                                                    <div id="re-print" class="accordion-collapse collapse" data-bs-parent="#QR-code-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            重印票
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#data-out-of-sync">
+                                                            前後端資料不一致
+                                                        </button>
+                                                    </h2>
+                                                    <div id="data-out-of-sync" class="accordion-collapse collapse" data-bs-parent="#QR-code-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <ul>
+                                                                <li>查看前後端不一致的所有訂單: 查看節目訂單→ 查詢節目→前後端檢查2（1 是開賣在用的）</li>
+                                                                <li>把這些訂單編號回報給業務，請他們檢查</li>
+                                                                <li>若以下條件滿足，即可通知業務更新訂單時間讓資料同步</li>
+                                                                <ol>
+                                                                    <li>有稅號</li>
+                                                                    <li>票券是否可以入場？</li>
+                                                                </ol>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#e-ticket">
+                                            電子票
+                                        </button>
+                                    </h2>
+                                    <div id="e-ticket" class="accordion-collapse collapse" data-bs-parent="#verification-layer-2">
+                                        <div class="accordion-body">
+                                            To be continued...
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#equipment">
+                            設備
+                        </button>
+                    </h2>
+                    <div id="equipment" class="accordion-collapse collapse" data-bs-parent="#layer-1">
+                        <div class="accordion-body">
+                            <div class="accordion" id="equipment-layer-2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#phone">
+                                            手機
+                                        </button>
+                                    </h2>
+                                    <div id="phone" class="accordion-collapse collapse" data-bs-parent="#equipment-layer-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion" id="phone-layer-3">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#internet">
+                                                            無法連上網路
+                                                        </button>
+                                                    </h2>
+                                                    <div id="internet" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <code>照順序嘗試</code>
+                                                            <ol>
+                                                                <li>重開 WIFI</li>
+                                                                <li>重開機</li>
+                                                                <li>換備用機</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#BIOS">
+                                                            開機進到 BIOS 畫面
+                                                        </button>
+                                                    </h2>
+                                                    <div id="BIOS" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            再按一次開機鍵讓手機重開機
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#can-not-boot-up">
+                                                            無法開機
+                                                        </button>
+                                                    </h2>
+                                                    <div id="can-not-boot-up" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <code>照順序嘗試</code>
+                                                            <ol>
+                                                                <li>重插電池</li>
+                                                                <li>換備用機</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#phone-wrap-up">
+                                                            活動後的整備
+                                                        </button>
+                                                    </h2>
+                                                    <div id="phone-wrap-up" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <ul>
+                                                                <li>連續場次</li>
+                                                                <ul>
+                                                                    <li>主辦願意保管:</li>
+                                                                    清點、清潔、更換場次後交給主辦保管、充電
+                                                                    <li>主辦<code>不願意 or 沒地方</code>保管:</li>
+                                                                    清點後帶回公司（飯店）更換場次、清潔、充電，隔日交給主辦
+                                                                </ul>
+                                                                <li>非連續場次</li>
+                                                                清點後帶回公司（飯店）清潔、充電，隔日交給主辦
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tablet">
+                                            平板
+                                        </button>
+                                    </h2>
+                                    <div id="tablet" class="accordion-collapse collapse" data-bs-parent="#equipment-layer-2">
+                                        <div class="accordion-body">
+                                            To be continued...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ticketing-machine">
+                                            票務機
+                                        </button>
+                                    </h2>
+                                    <div id="ticketing-machine" class="accordion-collapse collapse" data-bs-parent="#equipment-layer-2">
+                                        <div class="accordion-body">
+                                            To be continued...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#WIFI">
+                                            WIFI 機
+                                        </button>
+                                    </h2>
+                                    <div id="WIFI" class="accordion-collapse collapse" data-bs-parent="#equipment-layer-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion" id="WIFI-layer-3">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#internet">
+                                                            無法連上網路
+                                                        </button>
+                                                    </h2>
+                                                    <div id="internet" class="accordion-collapse collapse" data-bs-parent="#WIFI-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <code>註: 需先與主辦溝通是否能直接手撕票</code>
+                                                            <ol>
+                                                                <li>重開 WIFI 機（等待期間先手撕票入場）</li>
+                                                                <li>手撕票入場</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
