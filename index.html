@@ -7,7 +7,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="https://64.media.tumblr.com/7c60185bd2569e29fe44b2a7f8a49f72/tumblr_pn3ja1C52q1ubc65j_400.jpg">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/bootstrap.bundle.min.js"></script>
-        <title>現場活動異常排除</title>
+        <title>現場活動問題集</title>
     </head>
     <style>
         .bg-color {
@@ -29,31 +29,36 @@
             <div class="accordion" id="layer-1">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#e-verification">
-                            電子驗票
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#QR-code">
+                            QR code
                         </button>
                     </h2>
-                    <div id="e-verification" class="accordion-collapse collapse" data-bs-parent="#layer-1">
+                    <div id="QR-code" class="accordion-collapse collapse" data-bs-parent="#layer-1">
                         <div class="accordion-body">
-                            <div class="accordion" id="e-verification-layer-2">
+                            <div class="accordion" id="QR-code-layer-2">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#QR-code">
-                                            QRcode 掃不過
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#varification-failed">
+                                            驗入場失敗
                                         </button>
                                     </h2>
-                                    <div id="QR-code" class="accordion-collapse collapse" data-bs-parent="#e-verification-layer-2">
+                                    <div id="varification-failed" class="accordion-collapse collapse" data-bs-parent="#QR-code-layer-2">
                                         <div class="accordion-body">
-                                            <div class="accordion" id="QR-code-layer-3">
+                                            <div class="accordion" id="varification-failed-layer-3">
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header">
                                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#re-print">
-                                                            票已列印過但訂單被<code>刪掉重訂</code>或是<code>分割</code>
+                                                            需要重印票的情況
                                                         </button>
                                                     </h2>
-                                                    <div id="re-print" class="accordion-collapse collapse" data-bs-parent="#QR-code-layer-3">
+                                                    <div id="re-print" class="accordion-collapse collapse" data-bs-parent="#varification-failed-layer-3">
                                                         <div class="accordion-body last-layer-content">
-                                                            重印票
+                                                            <ol>
+                                                                <li>已印票又改過訂單編號&票價</li>
+                                                                <li>刪除又復原（重訂），驗證碼會變更</li>
+                                                                <li>被切割出去的票（切回來且不更動票種票價 => 驗證碼不會變更）</li>
+                                                                <li>訂單切換帳號，增修備註</li>
+                                                            </ol>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -63,7 +68,7 @@
                                                             前後端資料不一致
                                                         </button>
                                                     </h2>
-                                                    <div id="data-out-of-sync" class="accordion-collapse collapse" data-bs-parent="#QR-code-layer-3">
+                                                    <div id="data-out-of-sync" class="accordion-collapse collapse" data-bs-parent="#varification-failed-layer-3">
                                                         <div class="accordion-body last-layer-content">
                                                             <ul>
                                                                 <li>查看前後端不一致的所有訂單: 查看節目訂單→ 查詢節目→前後端檢查2（1 是開賣在用的）</li>
@@ -77,22 +82,36 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#order-status-success-scan">
+                                                            可以驗入場的訂單狀態
+                                                        </button>
+                                                    </h2>
+                                                    <div id="order-status-success-scan" class="accordion-collapse collapse" data-bs-parent="#varification-failed-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <p>I, Y</p>
+                                                            <p>D, E, O, R, S, T<code>（開頭符合就好）</code></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#check-group">
+                                                            檢查場次、群組
+                                                        </button>
+                                                    </h2>
+                                                    <div id="check-group" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <p>APP右上角點選：設定→關於本機→節目&手機入場群組</p>
+                                                            <code>需確認該區域是否已加入場次群組</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#e-ticket">
-                                            電子票
-                                        </button>
-                                    </h2>
-                                    <div id="e-ticket" class="accordion-collapse collapse" data-bs-parent="#verification-layer-2">
-                                        <div class="accordion-body">
-                                            To be continued...
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -115,6 +134,21 @@
                                     <div id="phone" class="accordion-collapse collapse" data-bs-parent="#equipment-layer-2">
                                         <div class="accordion-body">
                                             <div class="accordion" id="phone-layer-3">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#handover">
+                                                            點交
+                                                        </button>
+                                                    </h2>
+                                                    <div id="handover" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <ol>
+                                                                <li>使用統一的袋子（若有地方可以放小卡紀錄該袋子的入口、隻數更好）</li>
+                                                                <li>用顏色 + 數字區分入口和手機</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header">
                                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#internet">
@@ -177,8 +211,22 @@
                                                                     清點後帶回公司（飯店）更換場次、清潔、充電，隔日交給主辦
                                                                 </ul>
                                                                 <li>非連續場次</li>
-                                                                清點後帶回公司（飯店）清潔、充電，隔日交給主辦
+                                                                清點後帶回公司（飯店）清潔、充電
                                                             </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#monitor-mobile-internet">
+                                                            監控手機網路
+                                                        </button>
+                                                    </h2>
+                                                    <div id="monitor-mobile-internet" class="accordion-collapse collapse" data-bs-parent="#phone-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <code>需要連公司 VPN 才能看</code>
+                                                            <p>https://tixcraft.tongyi.tel:8443/manage/</p>
+                                                            <p>帳號密碼跟 andy 拿</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -236,6 +284,91 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orders">
+                            訂單
+                        </button>
+                    </h2>
+                    <div id="orders" class="accordion-collapse collapse" data-bs-parent="#layer-1">
+                        <div class="accordion-body">
+                            <div class="accordion" id="orders-layer-2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#delete-order-ticket">
+                                            若要刪除訂單或其中的票券，需要刪除入場紀錄嗎?
+                                        </button>
+                                    </h2>
+                                    <div id="delete-order-ticket" class="accordion-collapse collapse" data-bs-parent="#orders-layer-2">
+                                        <div class="accordion-body last-layer-content">
+                                            需先刪除入場紀錄，再刪除該票券或訂單
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work-permission">
+                                            工作證
+                                        </button>
+                                    </h2>
+                                    <div id="work-permission" class="accordion-collapse collapse" data-bs-parent="#orders-layer-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion" id="work-permission-layer-3">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#handover">
+                                                            交接
+                                                        </button>
+                                                    </h2>
+                                                    <div id="handover" class="accordion-collapse collapse" data-bs-parent="#work-permission-layer-3">
+                                                        <div class="accordion-body last-layer-content">
+                                                            <ul>
+                                                                <li>連續場次</li>
+                                                                交給隔天會到的支援人員 or 業務
+                                                                <li>非連續場次</li>
+                                                                直接交接給下一場次的支援人員
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#others">
+                            其他
+                        </button>
+                    </h2>
+                    <div id="others" class="accordion-collapse collapse" data-bs-parent="#layer-1">
+                        <div class="accordion-body">
+                            <div class="accordion" id="others-layer-2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#work-permission">
+                                            工作證交接
+                                        </button>
+                                    </h2>
+                                    <div id="work-permission" class="accordion-collapse collapse" data-bs-parent="#others-layer-2">
+                                        <div class="accordion-body last-layer-content">
+                                            <ul>
+                                                <li>連續場次</li>
+                                                交給隔天會到的支援人員 or 業務
+                                                <li>非連續場次</li>
+                                                直接交接給下一場次的支援人員
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
