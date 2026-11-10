@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>給出借人的說明</title>
+  <link rel="stylesheet" href="reveal.css">
+  <style>
+    :root {
+      --ink: #1c1915;
+      --muted: #5c564c;
+      --faint: #8a8175;
+      --rule: #e2d9cc;
+      --paper: #f4f0e8;
+      --card: #fffdf8;
+      --accent: #1e4d3a;
+      --accent-soft: #e6f0ea;
+      --clay: #8a3d2f;
+      --clay-soft: #f8ece8;
+    }
+
+    .reveal-viewport,
+    .reveal {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .reveal {
+      font-family: "WenQuanYi Micro Hei", "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 8px 12px 28px;
+      box-sizing: border-box;
+    }
+
+    .reveal h1,
+    .reveal h2,
+    .reveal h3,
+    .reveal p,
+    .reveal li,
+    .reveal td,
+    .reveal th {
+      font-family: inherit;
+      color: var(--ink);
+      text-transform: none;
+      letter-spacing: 0;
+      text-shadow: none;
+    }
+
+    .reveal h1 {
+      font-size: 1.55em;
+      font-weight: 700;
+      line-height: 1.22;
+      margin: 0 0 0.28em;
+    }
+
+    .reveal h2 {
+      font-size: 1.42em;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 0.38em;
+    }
+
+    .reveal h3 {
+      font-size: 0.72em;
+      font-weight: 700;
+      margin: 0 0 0.35em;
+    }
+
+    .reveal p,
+    .reveal li {
+      font-size: 0.74em;
+      line-height: 1.42;
+      margin: 0.22em 0;
+    }
+
+    .reveal ul {
+      display: block;
+      margin: 0;
+    }
+
+    .reveal li {
+      margin-bottom: 0.28em;
+    }
+
+    .kicker {
+      font-size: 0.38em !important;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin: 0 0 0.35em;
+    }
+
+    .lede {
+      font-size: 0.78em !important;
+      line-height: 1.4;
+    }
+
+    .ask {
+      font-size: 0.95em !important;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-top: 0.35em !important;
+    }
+
+    .muted { color: var(--muted); }
+    .faint { color: var(--faint); font-size: 0.46em !important; }
+
+    .title-slide {
+      background: var(--accent) !important;
+      color: #f7f4ee !important;
+      text-align: center;
+      padding-top: 168px !important;
+    }
+
+    .title-slide h1,
+    .title-slide p,
+    .title-slide .kicker,
+    .title-slide .ask,
+    .title-slide .lede,
+    .title-slide .faint {
+      color: #f7f4ee !important;
+      text-align: center;
+    }
+
+    .title-slide .kicker { color: #c9e2d4 !important; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 0.55em 0.75em 0.45em;
+      margin-top: 0.45em;
+    }
+
+    .card p,
+    .card li { font-size: 0.68em; }
+
+    .warn {
+      background: var(--clay-soft);
+      border-color: #efd2cb;
+    }
+
+    .soft {
+      background: var(--accent-soft);
+      border-color: #d3e4da;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .reveal table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.64em;
+      margin: 0.15em 0 0;
+    }
+
+    .reveal th,
+    .reveal td {
+      border-bottom: 1px solid var(--rule);
+      padding: 0.28em 0.35em;
+      vertical-align: top;
+    }
+
+    .reveal th {
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .reveal tr.total td { font-weight: 700; border-bottom: none; }
+    .reveal tr.gap td { font-weight: 700; color: var(--clay); border-bottom: none; }
+
+    .formula {
+      font-size: 0.7em !important;
+      font-weight: 700;
+      background: var(--card);
+      border-left: 6px solid var(--accent);
+      padding: 0.35em 0.6em;
+      margin: 0.35em 0 !important;
+    }
+
+    .big-num {
+      font-size: 1.15em !important;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 0.05em 0 !important;
+    }
+
+    .deck-footer {
+      position: fixed;
+      left: 22px;
+      bottom: 14px;
+      z-index: 40;
+      background: #fff;
+      color: var(--clay);
+      border: 1px solid #efd2cb;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    .reveal .progress span { background: var(--accent); }
+    .reveal .controls { color: var(--accent); }
+    .reveal .slide-number {
+      background: transparent;
+      color: var(--faint);
+      font-family: inherit;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-footer">這不是借據</div>
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="title-slide" data-background-color="#1e4d3a">
+        <p class="kicker">給出借人的說明</p>
+        <h1>售票平台</h1>
+        <p class="ask">請承諾將 150 萬元借給創辦人個人。</p>
+        <p class="lede">這筆錢不是公司的股權。出借人不是股東。</p>
+        <p class="faint" style="color:#d5e6dc !important;">方向鍵換頁。金額皆為新台幣。撥款前另立借據。</p>
+      </section>
+
+      <section>
+        <p class="kicker">這筆錢是什麼</p>
+        <h2>個人借款，借給創辦人</h2>
+        <div class="split">
+          <div class="card soft">
+            <h3>是</h3>
+            <ul>
+              <li>出借人把 150 萬元借給創辦人個人。</li>
+              <li>還款義務在創辦人。</li>
+              <li>啟動當月，創辦人再把這 150 萬元出資進公司。</li>
+            </ul>
+          </div>
+          <div class="card warn">
+            <h3>不是</h3>
+            <ul>
+              <li>不是公司發行的股份。</li>
+              <li>公司沒有還款義務。</li>
+              <li>出借人不是股東，也不是天使投資人。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">公司做什麼</p>
+        <h2>替主辦單位售票</h2>
+        <ul>
+          <li>主辦單位把節目放到平台上賣。</li>
+          <li>購票人付的是票價。</li>
+          <li>售票手續費向主辦單位收，從結算款扣除。</li>
+        </ul>
+        <div class="card warn">
+          <p>業務夥伴表示，有些正在談的節目可能改到這個平台售票。主辦單位名稱、檔期、合約，以及資料和技術怎麼轉移，都還沒有定。</p>
+          <p><strong>這句不計入售票目標，也不計入能力目標。</strong></p>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">怎麼收費</p>
+        <h2>手續費 4%，銀行拿 2%</h2>
+        <table>
+          <thead>
+            <tr><th>項目</th><th>規則</th><th class="num">占售票總額</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>售票手續費</td><td>向主辦單位收，從結算款扣除</td><td class="num">4%</td></tr>
+            <tr><td>金流成本</td><td>從手續費裡付給銀行</td><td class="num">2%</td></tr>
+            <tr class="total"><td>平台留存</td><td>手續費減去金流成本。不是獲利。</td><td class="num">2%</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">簡報只用這一組費率。購票人付的是票價，不另加這 4%。</p>
+      </section>
+
+      <section>
+        <p class="kicker">例題，不是目標</p>
+        <h2>一場售票總額 2,700 萬</h2>
+        <p class="muted">9,000 張 × 3,000 元。用來說明費率，不是已有的節目。</p>
+        <table>
+          <tbody>
+            <tr><td>售票總額</td><td class="num">2,700 萬</td></tr>
+            <tr><td>售票手續費 4%</td><td class="num">108 萬</td></tr>
+            <tr><td>金流成本 2%，付給銀行</td><td class="num">54 萬</td></tr>
+            <tr class="total"><td>平台留存 2%</td><td class="num">54 萬</td></tr>
+            <tr><td>主辦單位實拿</td><td class="num">2,592 萬</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <p class="kicker">時間</p>
+        <h2>現在是前置，啟動日留白</h2>
+        <div class="split">
+          <div>
+            <h3>前置</h3>
+            <ul>
+              <li>做平台建置和細項討論。</li>
+              <li>不售票。</li>
+              <li>不使用這 150 萬元。</li>
+              <li>承諾沒有西元截止日。</li>
+              <li>決定不開公司：通知出借人，承諾解除，不撥款。</li>
+            </ul>
+          </div>
+          <div>
+            <h3>啟動</h3>
+            <ul>
+              <li>決定開公司。</li>
+              <li>創辦人 150 萬、業務夥伴 150 萬、天使投資人 200 萬，在同一個月份進公司。</li>
+              <li>缺一筆，就還是前置，家人的錢不撥。</li>
+              <li>簡報不印西元年月。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">能力目標</p>
+        <h2>只寫人數，不寫票價</h2>
+        <p class="muted">這些是目標，不是已簽約的案件。人數不乘進售票目標。</p>
+        <table>
+          <thead>
+            <tr><th>時間</th><th>節目</th><th class="num">人數</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>啟動後 3 個月</td><td>小型節目</td><td class="num">1,000 至 2,000 人</td></tr>
+            <tr><td>啟動後 6 個月</td><td>萬人節目</td><td class="num">約 10,000 人</td></tr>
+            <tr><td>啟動後 12 個月</td><td>四萬人節目</td><td class="num">約 40,000 人</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <p class="kicker">售票目標</p>
+        <h2>啟動後第 25 到 36 個月</h2>
+        <p class="big-num">售票總額 1 億元</p>
+        <p>對應平台留存 200 萬元。薪資和雲端還沒扣，所以這 200 萬元不是獲利。</p>
+        <div class="card">
+          <p class="kicker">規模參照，不是三年目標</p>
+          <p>售票總額 10 億元時，平台留存 2,000 萬元。</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">公司資本 500 萬元</p>
+        <h2>經濟股權照出資</h2>
+        <table>
+          <thead>
+            <tr><th>誰</th><th class="num">出資</th><th class="num">經濟股權</th><th>決定什麼</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>創辦人</td><td class="num">150 萬</td><td class="num">30%</td><td>技術與平台</td></tr>
+            <tr><td>業務夥伴</td><td class="num">150 萬</td><td class="num">30%</td><td>產品與業務</td></tr>
+            <tr class="total"><td>天使投資人</td><td class="num">200 萬</td><td class="num">40%</td><td>兩人意見不同時，由天使投資人決定</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">薪資和雲端正式報價未定，所以不估算可支撐月數。財務與法務尚未聘用。</p>
+      </section>
+
+      <section>
+        <p class="kicker">個人借款</p>
+        <h2>150 萬元怎麼借、怎麼還</h2>
+        <div class="split">
+          <div>
+            <h3>撥款</h3>
+            <ul>
+              <li>無息。</li>
+              <li>無擔保。公司不保證。其他家人不連帶。</li>
+              <li>啟動當月撥給創辦人，當月出資進公司。</li>
+              <li>自撥款日起 18 個月到期。到期前可以先還。</li>
+            </ul>
+          </div>
+          <div>
+            <h3>還款</h3>
+            <ul>
+              <li>到期沒還完的餘額，用創辦人的個人所得繼續還。</li>
+              <li>不把這 150 萬元從公司抽回。抽回以後，公司資本就少了這筆錢。</li>
+              <li>18 個月是到期日，不是業務預計賺到本金的日期。</li>
+              <li>撥款前另立借據。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">若滿座</p>
+        <h2>還清 150 萬，最早要 2 億 5,000 萬</h2>
+        <p class="formula">創辦人現金 = 售票總額 × 2% × 30% = 售票總額 × 0.6%</p>
+        <ul>
+          <li>這是成本當零、平台留存全部變成獲利、再按經濟股權分配的算法。</li>
+          <li>150 萬元 ÷ 0.6% = 售票總額 2 億 5,000 萬元。</li>
+          <li>例題一場 2,700 萬元，創辦人分到 16.2 萬元。</li>
+          <li>雲端和薪資算進去，還清會更晚。</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="kicker">若滿座</p>
+        <h2>三個能力目標全滿，仍差 56.4 萬</h2>
+        <p class="muted">票價用例題的 3,000 元。小型節目按 2,000 人計。成本當零。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>節目</th>
+              <th class="num">人數</th>
+              <th class="num">售票總額</th>
+              <th class="num">平台留存</th>
+              <th class="num">創辦人 30%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>小型</td><td class="num">2,000</td><td class="num">600 萬</td><td class="num">12 萬</td><td class="num">3.6 萬</td></tr>
+            <tr><td>萬人</td><td class="num">10,000</td><td class="num">3,000 萬</td><td class="num">60 萬</td><td class="num">18 萬</td></tr>
+            <tr><td>四萬人</td><td class="num">40,000</td><td class="num">1 億 2,000 萬</td><td class="num">240 萬</td><td class="num">72 萬</td></tr>
+            <tr class="total"><td>合計</td><td class="num"></td><td class="num">1 億 5,600 萬</td><td class="num">312 萬</td><td class="num">93.6 萬</td></tr>
+            <tr class="gap"><td>距離 150 萬</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">還差 56.4 萬</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <p class="kicker">停下來的時候</p>
+        <h2>六個月沒有開賣，當月做決定</h2>
+        <ul>
+          <li>啟動滿 6 個月，若一檔節目都還沒開賣，創辦人與業務夥伴在那個月決定是否停業，並停止新的支出。</li>
+          <li>決定繼續，也不再向家人要錢。</li>
+          <li>停業之後，創辦人去找工作。個人借款剩下的本金仍由創辦人還。</li>
+          <li>股份轉讓還沒有約定。創辦人退出，個人借款也不消失。</li>
+          <li>創辦人若沒有足夠的個人所得，這 150 萬元可能還不清。</li>
+        </ul>
+      </section>
+
+      <section>
+        <p class="kicker">出借人怎麼知道進度</p>
+        <h2>前置兩次通知，啟動後每月一頁</h2>
+        <div class="split">
+          <div class="card">
+            <h3>前置</h3>
+            <p>只在兩個時候通知：決定啟動，或決定不開公司。不每月報告。</p>
+          </div>
+          <div class="card">
+            <h3>啟動之後，每月</h3>
+            <ul>
+              <li>公司現金餘額</li>
+              <li>當月支出</li>
+              <li>當月平台留存</li>
+              <li>個人借款餘額</li>
+              <li>已開賣節目的售票總額</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted">月報不寫主辦單位名稱。</p>
+      </section>
+
+      <section>
+        <p class="kicker">請求</p>
+        <h2>請承諾這筆借款</h2>
+        <p class="ask">150 萬元，借給創辦人個人，無息。</p>
+        <ul>
+          <li>現在先承諾。錢在啟動當月才撥。</li>
+          <li>啟動要三筆出資同一個月份到位。</li>
+          <li>決定不開公司，承諾解除。</li>
+          <li>撥款前另立借據。這份簡報不是借據。</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+  <script src="reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      hashOneBasedIndex: true,
+      slideNumber: "c/t",
+      width: 1280,
+      height: 800,
+      margin: 0.07,
+      center: false,
+      transition: "none",
+      backgroundTransition: "none",
+      controls: true,
+      progress: true,
+      pdfSeparateFragments: false
+    });
+  </script>
+</body>
+</html>
