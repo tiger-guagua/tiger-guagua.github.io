@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>給出借人的說明</title>
+  <title>我想跟你借 150 萬</title>
   <link rel="stylesheet" href="reveal.css">
   <style>
     html, body { margin: 0; height: 100%; overflow: hidden; }
@@ -211,6 +211,40 @@
       margin: 0.05em 0 !important;
     }
 
+    .nums {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 0.7em;
+    }
+
+    .numcard {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      padding: 0.65em 0.75em 0.55em;
+    }
+
+    .numcard strong {
+      display: block;
+      font-size: 1.65em;
+      line-height: 1.1;
+      color: var(--accent);
+    }
+
+    .numcard span {
+      display: block;
+      margin-top: 0.3em;
+      color: var(--muted);
+      font-size: 0.92em;
+      line-height: 1.35;
+    }
+
+    .say {
+      font-size: 1.15em;
+      line-height: 1.45;
+    }
+
     .deck-footer {
       position: fixed;
       left: 22px;
@@ -227,7 +261,7 @@
     }
 
     @media (max-width: 800px) {
-      .split { grid-template-columns: 1fr; gap: 14px; }
+      .split, .nums { grid-template-columns: 1fr; gap: 14px; }
       .title-slide { text-align: left; }
       .title-slide h1,
       .title-slide p,
@@ -253,262 +287,109 @@
     <div class="slides">
 
       <section class="title-slide" data-background-color="#1e4d3a">
-        <p class="kicker">給出借人的說明</p>
-        <h1>售票平台</h1>
-        <p class="ask">請承諾將 150 萬元借給創辦人個人。</p>
-        <p class="lede">這筆錢不是公司的股權。出借人不是股東。</p>
-        <p class="faint" style="color:#d5e6dc !important;">方向鍵換頁。金額皆為新台幣。撥款前另立借據。</p>
+        <p class="kicker">先講結論</p>
+        <h1>我想跟你借 150 萬</h1>
+        <p class="ask">錢借給我本人，不是買公司的股票。</p>
+        <p class="lede">今天先讓你聽懂。錢先不要給。</p>
+        <p class="faint" style="color:#d5e6dc !important;">方向鍵換頁。金額都是新台幣。這份不是借據。</p>
       </section>
 
       <section>
-        <p class="kicker">這筆錢是什麼</p>
-        <h2>個人借款，借給創辦人</h2>
-        <div class="split">
-          <div class="card soft">
-            <h3>是</h3>
-            <ul>
-              <li>出借人把 150 萬元借給創辦人個人。</li>
-              <li>還款義務在創辦人。</li>
-              <li>啟動當月，創辦人再把這 150 萬元出資進公司。</li>
-            </ul>
-          </div>
-          <div class="card warn">
-            <h3>不是</h3>
-            <ul>
-              <li>不是公司發行的股份。</li>
-              <li>公司沒有還款義務。</li>
-              <li>出借人不是股東，也不是天使投資人。</li>
-            </ul>
-          </div>
+        <p class="kicker">順序</p>
+        <h2>我先跟另外兩個人開會，再來跟你談</h2>
+        <p class="say">薪水、生活費、每個月還你多少、公司怎麼登記，這些都還沒跟業務夥伴、另一位出資的人對過。</p>
+        <p>對完我再拿一版有數字的來。這份是先讓你知道我在想什麼，不是要你今天答應。</p>
+      </section>
+
+      <section>
+        <p class="kicker">我們要做什麼</p>
+        <h2>幫辦活動的人賣票</h2>
+        <p class="say">辦演唱會、辦活動的人，現在多半把票放在拓元賣。我們想自己做一個售票網站。</p>
+        <p>買票的人付票價。我們跟辦活動的人收一筆手續費，從他該拿的錢裡面扣。</p>
+        <div class="nums">
+          <div class="numcard"><strong>4%</strong><span>我們收的手續費</span></div>
+          <div class="numcard"><strong>2%</strong><span>銀行拿走的</span></div>
+          <div class="numcard"><strong>2%</strong><span>扣掉銀行後公司留下的。這還不是獲利。</span></div>
         </div>
       </section>
 
       <section>
-        <p class="kicker">公司做什麼</p>
-        <h2>替主辦單位售票</h2>
+        <p class="kicker">客人從哪來</p>
+        <h2>業務說可以從拓元帶過來。為什麼人家要換？</h2>
+        <p class="say">他說手上有些正在談的活動，可以改來我們這裡賣。</p>
+        <p>可是辦活動的人為什麼要離開拓元？是我們比較便宜、比較好用，還是只是因為認識他？這句我還沒有一個能讓你放心的答案。</p>
+        <p>活動叫什麼、有沒有簽約、舊的資料怎麼接過來，都還沒有。所以這不是已經接到的案子。</p>
+      </section>
+
+      <section>
+        <p class="kicker">我做什麼</p>
+        <h2>我做網站。他去找活動。</h2>
+        <div class="nums">
+          <div class="numcard"><strong>我</strong><span>把售票網站做出來。開賣的時候不能當掉。</span></div>
+          <div class="numcard"><strong>業務夥伴</strong><span>找活動、談要不要來我們這裡賣。</span></div>
+          <div class="numcard"><strong>另一位出資的人</strong><span>我們兩個談不攏時，由他決定。</span></div>
+        </div>
+        <p>我不會去改他談好的條件。他也不會來改系統。</p>
+      </section>
+
+      <section>
+        <p class="kicker">錢</p>
+        <h2>150 萬是借給我的本金</h2>
+        <div class="nums">
+          <div class="numcard"><strong>150 萬</strong><span>我想跟你借的。無息。</span></div>
+          <div class="numcard"><strong>500 萬</strong><span>公司打算湊的。我 150、夥伴 150、另一位 200。</span></div>
+          <div class="numcard"><strong>18 個月</strong><span>到這天要把還沒還的還清。有錢可以先還。</span></div>
+        </div>
+        <p>每個月固定還多少，我還沒定。公司還沒決定要開，就不會跟你拿這筆錢。拿到的那天，它會變成我拿去公司的出資，不是我的生活費。</p>
+      </section>
+
+      <section>
+        <p class="kicker">辭職之後</p>
+        <h2>這幾題我現在答不出來</h2>
         <ul>
-          <li>主辦單位把節目放到平台上賣。</li>
-          <li>購票人付的是票價。</li>
-          <li>售票手續費向主辦單位收，從結算款扣除。</li>
+          <li>人還在不在台北。</li>
+          <li>沒有薪水的時候，生活費怎麼付。</li>
+          <li>什麼時候開始領底薪，一個月多少。</li>
+          <li>所以這 150 萬能讓公司燒幾個月，我也還不能講。</li>
         </ul>
-        <div class="card warn">
-          <p>業務夥伴表示，有些正在談的節目可能改到這個平台售票。主辦單位名稱、檔期、合約，以及資料和技術怎麼轉移，都還沒有定。</p>
-          <p><strong>這句不計入售票目標，也不計入能力目標。</strong></p>
-        </div>
+        <p class="say">可以先講死的只有一句：你的錢是公司的本錢，不能拿去付我的生活費。生活費要另外算。</p>
       </section>
 
       <section>
-        <p class="kicker">怎麼收費</p>
-        <h2>手續費 4%，銀行拿 2%</h2>
-        <table>
-          <thead>
-            <tr><th>項目</th><th>規則</th><th class="num">占售票總額</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>售票手續費</td><td>向主辦單位收，從結算款扣除</td><td class="num">4%</td></tr>
-            <tr><td>金流成本</td><td>從手續費裡付給銀行</td><td class="num">2%</td></tr>
-            <tr class="total"><td>平台留存</td><td>手續費減去金流成本。不是獲利。</td><td class="num">2%</td></tr>
-          </tbody>
-        </table>
-        <p class="muted">簡報只用這一組費率。購票人付的是票價，不另加這 4%。</p>
+        <p class="kicker">開銷</p>
+        <h2>基本成本有哪些，總額還沒算</h2>
+        <p>一定會有的是：公司登記、伺服器、金流手續費、我的底薪、業務夥伴的收入，之後可能還有會計跟律師。</p>
+        <p class="say">每一項大概多少，要等三個人對過才寫得下去。我現在不先給你一個看起來很完整、其實是猜的數字。</p>
       </section>
 
       <section>
-        <p class="kicker">例題，不是目標</p>
-        <h2>一場售票總額 2,700 萬</h2>
-        <p class="muted">9,000 張 × 3,000 元。用來說明費率，不是已有的節目。</p>
-        <table>
-          <tbody>
-            <tr><td>售票總額</td><td class="num">2,700 萬</td></tr>
-            <tr><td>售票手續費 4%</td><td class="num">108 萬</td></tr>
-            <tr><td>金流成本 2%，付給銀行</td><td class="num">54 萬</td></tr>
-            <tr class="total"><td>平台留存 2%</td><td class="num">54 萬</td></tr>
-            <tr><td>主辦單位實拿</td><td class="num">2,592 萬</td></tr>
-          </tbody>
-        </table>
+        <p class="kicker">公司</p>
+        <h2>公司還沒成立，職稱也還沒有</h2>
+        <p>要登記成哪一種公司、誰當負責人、法律上誰負責，要律師跟另外兩個人一起看。</p>
+        <p class="say">現在定得下來的只有這句：借據寫我的名字。公司做不起來，150 萬還是我還你。不會算到你頭上，也不會要家裡其他人一起還。</p>
+        <p>股份以後能不能轉給別人，我們三個還沒談好。</p>
       </section>
 
       <section>
-        <p class="kicker">時間</p>
-        <h2>現在是前置，啟動日留白</h2>
-        <div class="split">
-          <div>
-            <h3>前置</h3>
-            <ul>
-              <li>做平台建置和細項討論。</li>
-              <li>不售票。</li>
-              <li>不使用這 150 萬元。</li>
-              <li>承諾沒有西元截止日。</li>
-              <li>決定不開公司：通知出借人，承諾解除，不撥款。</li>
-            </ul>
-          </div>
-          <div>
-            <h3>啟動</h3>
-            <ul>
-              <li>決定開公司。</li>
-              <li>創辦人 150 萬、業務夥伴 150 萬、天使投資人 200 萬，在同一個月份進公司。</li>
-              <li>缺一筆，就還是前置，家人的錢不撥。</li>
-              <li>簡報不印西元年月。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <p class="kicker">能力目標</p>
-        <h2>只寫人數，不寫票價</h2>
-        <p class="muted">這些是目標，不是已簽約的案件。人數不乘進售票目標。</p>
-        <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th>時間</th><th>節目</th><th class="num">人數</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>啟動後 3 個月</td><td>小型節目</td><td class="num">1,000 至 2,000 人</td></tr>
-            <tr><td>啟動後 6 個月</td><td>萬人節目</td><td class="num">約 10,000 人</td></tr>
-            <tr><td>啟動後 12 個月</td><td>四萬人節目</td><td class="num">約 40,000 人</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </section>
-
-      <section>
-        <p class="kicker">售票目標</p>
-        <h2>啟動後第 25 到 36 個月</h2>
-        <p class="big-num">售票總額 1 億元</p>
-        <p>對應平台留存 200 萬元。薪資和雲端還沒扣，所以這 200 萬元不是獲利。</p>
-        <div class="card">
-          <p class="kicker">規模參照，不是三年目標</p>
-          <p>售票總額 10 億元時，平台留存 2,000 萬元。</p>
-        </div>
-      </section>
-
-      <section>
-        <p class="kicker">公司資本 500 萬元</p>
-        <h2>經濟股權照出資</h2>
-        <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th>誰</th><th class="num">出資</th><th class="num">經濟股權</th><th>決定什麼</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>創辦人</td><td class="num">150 萬</td><td class="num">30%</td><td>技術與平台</td></tr>
-            <tr><td>業務夥伴</td><td class="num">150 萬</td><td class="num">30%</td><td>產品與業務</td></tr>
-            <tr class="total"><td>天使投資人</td><td class="num">200 萬</td><td class="num">40%</td><td>兩人意見不同時，由天使投資人決定</td></tr>
-          </tbody>
-        </table>
-        </div>
-        <p class="muted">薪資和雲端正式報價未定，所以不估算可支撐月數。財務與法務尚未聘用。</p>
-      </section>
-
-      <section>
-        <p class="kicker">個人借款</p>
-        <h2>150 萬元怎麼借、怎麼還</h2>
-        <div class="split">
-          <div>
-            <h3>撥款</h3>
-            <ul>
-              <li>無息。</li>
-              <li>無擔保。公司不保證。其他家人不連帶。</li>
-              <li>啟動當月撥給創辦人，當月出資進公司。</li>
-              <li>自撥款日起 18 個月到期。到期前可以先還。</li>
-            </ul>
-          </div>
-          <div>
-            <h3>還款</h3>
-            <ul>
-              <li>到期沒還完的餘額，用創辦人的個人所得繼續還。</li>
-              <li>不把這 150 萬元從公司抽回。抽回以後，公司資本就少了這筆錢。</li>
-              <li>18 個月是到期日，不是業務預計賺到本金的日期。</li>
-              <li>撥款前另立借據。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <p class="kicker">若滿座</p>
-        <h2>還清 150 萬，最早要 2 億 5,000 萬</h2>
-        <p class="formula">創辦人現金 = 售票總額 × 2% × 30% = 售票總額 × 0.6%</p>
+        <p class="kicker">如果真的開成了</p>
+        <h2>目標是這樣，但中間還會有別的場</h2>
         <ul>
-          <li>這是成本當零、平台留存全部變成獲利、再按經濟股權分配的算法。</li>
-          <li>150 萬元 ÷ 0.6% = 售票總額 2 億 5,000 萬元。</li>
-          <li>例題一場 2,700 萬元，創辦人分到 16.2 萬元。</li>
-          <li>雲端和薪資算進去，還清會更晚。</li>
+          <li>開公司後 3 個月，先賣一場一兩千人的。</li>
+          <li>半年，一場大約一萬人的。</li>
+          <li>一年，一場大約四萬人的。</li>
+          <li>第三年，希望一年賣到 1 億。</li>
         </ul>
+        <p>這些是目標，不是已經談好的場次。目標和目標之間還可能有其他節目。</p>
+        <p class="say">就算賣得很好，我自己分到的錢要湊滿 150 萬，整個網站大概要賣到 2 億 5,000 萬。中間場次多，會比只靠上面那幾場更快，但我還不能答應你幾個月還清。</p>
+        <p>開了半年一場都沒賣，我們當月就決定要不要停。停了我就去找工作，錢還是我欠你的。</p>
       </section>
 
       <section>
-        <p class="kicker">若滿座</p>
-        <h2>中間若還有節目，會更早達到</h2>
-        <p>這三檔是能力目標。目標和目標之間還可能有其他節目，售票總額會再累加，所以創辦人拿到 150 萬可以比只靠這三檔更早。2 億 5,000 萬的算法不變。</p>
-        <p class="muted">下表假設這段時間只有這三檔、都滿座、票價 3,000 元、小型按 2,000 人、成本為零。</p>
-        <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>節目</th>
-              <th class="num">人數</th>
-              <th class="num">售票總額</th>
-              <th class="num">平台留存</th>
-              <th class="num">創辦人 30%</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>小型</td><td class="num">2,000</td><td class="num">600 萬</td><td class="num">12 萬</td><td class="num">3.6 萬</td></tr>
-            <tr><td>萬人</td><td class="num">10,000</td><td class="num">3,000 萬</td><td class="num">60 萬</td><td class="num">18 萬</td></tr>
-            <tr><td>四萬人</td><td class="num">40,000</td><td class="num">1 億 2,000 萬</td><td class="num">240 萬</td><td class="num">72 萬</td></tr>
-            <tr class="total"><td>合計</td><td class="num"></td><td class="num">1 億 5,600 萬</td><td class="num">312 萬</td><td class="num">93.6 萬</td></tr>
-            <tr class="gap"><td>距離 150 萬</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">還差 56.4 萬</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </section>
-
-      <section>
-        <p class="kicker">停下來的時候</p>
-        <h2>六個月沒有開賣，當月做決定</h2>
-        <ul>
-          <li>啟動滿 6 個月，若一檔節目都還沒開賣，創辦人與業務夥伴在那個月決定是否停業，並停止新的支出。</li>
-          <li>決定繼續，也不再向家人要錢。</li>
-          <li>停業之後，創辦人去找工作。個人借款剩下的本金仍由創辦人還。</li>
-          <li>股份轉讓還沒有約定。創辦人退出，個人借款也不消失。</li>
-          <li>創辦人若沒有足夠的個人所得，這 150 萬元可能還不清。</li>
-        </ul>
-      </section>
-
-      <section>
-        <p class="kicker">出借人怎麼知道進度</p>
-        <h2>前置兩次通知，啟動後每月一頁</h2>
-        <div class="split">
-          <div class="card">
-            <h3>前置</h3>
-            <p>只在兩個時候通知：決定啟動，或決定不開公司。不每月報告。</p>
-          </div>
-          <div class="card">
-            <h3>啟動之後，每月</h3>
-            <ul>
-              <li>公司現金餘額</li>
-              <li>當月支出</li>
-              <li>當月平台留存</li>
-              <li>個人借款餘額</li>
-              <li>已開賣節目的售票總額</li>
-            </ul>
-          </div>
-        </div>
-        <p class="muted">月報不寫主辦單位名稱。</p>
-      </section>
-
-      <section>
-        <p class="kicker">請求</p>
-        <h2>請承諾這筆借款</h2>
-        <p class="ask">150 萬元，借給創辦人個人，無息。</p>
-        <ul>
-          <li>現在先承諾。錢在啟動當月才撥。</li>
-          <li>啟動要三筆出資同一個月份到位。</li>
-          <li>決定不開公司，承諾解除。</li>
-          <li>撥款前另立借據。這份簡報不是借據。</li>
-        </ul>
+        <p class="kicker">所以現在</p>
+        <h2>請先不要準備這筆錢</h2>
+        <p class="say">我先約業務夥伴和另一位出資的人，把薪水、開銷、每個月還多少、公司怎麼登記補上。</p>
+        <p>補完再來跟你談要不要借。真的開了之後，我每個月用一頁跟你講：還剩多少錢、這個月花多少、賣了多少。不寫客戶名字。</p>
+        <p>這份簡報不是借據。</p>
       </section>
 
     </div>
