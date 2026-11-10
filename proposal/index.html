@@ -6,6 +6,8 @@
   <title>給出借人的說明</title>
   <link rel="stylesheet" href="reveal.css">
   <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; }
+
     :root {
       --ink: #1c1915;
       --muted: #5c564c;
@@ -34,8 +36,12 @@
     }
 
     .reveal .slides section {
-      padding: 8px 12px 28px;
+      font-size: clamp(18px, 1.05rem + 0.55vw, 28px);
+      padding: clamp(20px, 3vh, 40px) clamp(16px, 4vw, 56px) 76px !important;
       box-sizing: border-box;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 100%;
     }
 
     .reveal h1,
@@ -53,30 +59,30 @@
     }
 
     .reveal h1 {
-      font-size: 1.55em;
+      font-size: 2em;
       font-weight: 700;
       line-height: 1.22;
       margin: 0 0 0.28em;
     }
 
     .reveal h2 {
-      font-size: 1.42em;
+      font-size: 1.45em;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.28;
       margin: 0 0 0.38em;
     }
 
     .reveal h3 {
-      font-size: 0.72em;
+      font-size: 1.05em;
       font-weight: 700;
       margin: 0 0 0.35em;
     }
 
     .reveal p,
     .reveal li {
-      font-size: 0.74em;
-      line-height: 1.42;
-      margin: 0.22em 0;
+      font-size: 1em;
+      line-height: 1.45;
+      margin: 0.28em 0;
     }
 
     .reveal ul {
@@ -89,9 +95,9 @@
     }
 
     .kicker {
-      font-size: 0.38em !important;
+      font-size: 0.82em !important;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       color: var(--accent);
       margin: 0 0 0.35em;
     }
@@ -109,13 +115,13 @@
     }
 
     .muted { color: var(--muted); }
-    .faint { color: var(--faint); font-size: 0.46em !important; }
+    .faint { color: var(--faint); font-size: 0.85em !important; }
 
     .title-slide {
       background: var(--accent) !important;
       color: #f7f4ee !important;
       text-align: center;
-      padding-top: 168px !important;
+      padding-top: clamp(48px, 14vh, 160px) !important;
     }
 
     .title-slide h1,
@@ -139,7 +145,7 @@
     }
 
     .card p,
-    .card li { font-size: 0.68em; }
+    .card li { font-size: 1em; }
 
     .warn {
       background: var(--clay-soft);
@@ -158,12 +164,20 @@
       align-items: start;
     }
 
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     .reveal table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.64em;
+      font-size: 1em;
       margin: 0.15em 0 0;
     }
+
+    .table-scroll table { min-width: 40em; }
 
     .reveal th,
     .reveal td {
@@ -182,7 +196,7 @@
     .reveal tr.gap td { font-weight: 700; color: var(--clay); border-bottom: none; }
 
     .formula {
-      font-size: 0.7em !important;
+      font-size: 1.05em !important;
       font-weight: 700;
       background: var(--card);
       border-left: 6px solid var(--accent);
@@ -191,7 +205,7 @@
     }
 
     .big-num {
-      font-size: 1.15em !important;
+      font-size: 1.6em !important;
       font-weight: 700;
       line-height: 1.15;
       margin: 0.05em 0 !important;
@@ -207,9 +221,20 @@
       border: 1px solid #efd2cb;
       border-radius: 999px;
       padding: 5px 12px;
-      font-size: 14px;
+      font-size: clamp(15px, 3.4vw, 18px);
       font-weight: 700;
       pointer-events: none;
+    }
+
+    @media (max-width: 800px) {
+      .split { grid-template-columns: 1fr; gap: 14px; }
+      .title-slide { text-align: left; }
+      .title-slide h1,
+      .title-slide p,
+      .title-slide .kicker,
+      .title-slide .ask,
+      .title-slide .lede,
+      .title-slide .faint { text-align: left; }
     }
 
     .reveal .progress span { background: var(--accent); }
@@ -218,7 +243,7 @@
       background: transparent;
       color: var(--faint);
       font-family: inherit;
-      font-size: 14px;
+      font-size: clamp(14px, 3vw, 18px);
     }
   </style>
 </head>
@@ -333,6 +358,7 @@
         <p class="kicker">能力目標</p>
         <h2>只寫人數，不寫票價</h2>
         <p class="muted">這些是目標，不是已簽約的案件。人數不乘進售票目標。</p>
+        <div class="table-scroll">
         <table>
           <thead>
             <tr><th>時間</th><th>節目</th><th class="num">人數</th></tr>
@@ -343,6 +369,7 @@
             <tr><td>啟動後 12 個月</td><td>四萬人節目</td><td class="num">約 40,000 人</td></tr>
           </tbody>
         </table>
+        </div>
       </section>
 
       <section>
@@ -359,6 +386,7 @@
       <section>
         <p class="kicker">公司資本 500 萬元</p>
         <h2>經濟股權照出資</h2>
+        <div class="table-scroll">
         <table>
           <thead>
             <tr><th>誰</th><th class="num">出資</th><th class="num">經濟股權</th><th>決定什麼</th></tr>
@@ -369,6 +397,7 @@
             <tr class="total"><td>天使投資人</td><td class="num">200 萬</td><td class="num">40%</td><td>兩人意見不同時，由天使投資人決定</td></tr>
           </tbody>
         </table>
+        </div>
         <p class="muted">薪資和雲端正式報價未定，所以不估算可支撐月數。財務與法務尚未聘用。</p>
       </section>
 
@@ -411,8 +440,10 @@
 
       <section>
         <p class="kicker">若滿座</p>
-        <h2>三個能力目標全滿，仍差 56.4 萬</h2>
-        <p class="muted">票價用例題的 3,000 元。小型節目按 2,000 人計。成本當零。</p>
+        <h2>中間若還有節目，會更早達到</h2>
+        <p>這三檔是能力目標。目標和目標之間還可能有其他節目，售票總額會再累加，所以創辦人拿到 150 萬可以比只靠這三檔更早。2 億 5,000 萬的算法不變。</p>
+        <p class="muted">下表假設這段時間只有這三檔、都滿座、票價 3,000 元、小型按 2,000 人、成本為零。</p>
+        <div class="table-scroll">
         <table>
           <thead>
             <tr>
@@ -431,6 +462,7 @@
             <tr class="gap"><td>距離 150 萬</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">還差 56.4 萬</td></tr>
           </tbody>
         </table>
+        </div>
       </section>
 
       <section>
@@ -483,19 +515,34 @@
   </div>
   <script src="reveal.js"></script>
   <script>
-    Reveal.initialize({
+    function viewportSize() {
+      return {
+        width: Math.max(document.documentElement.clientWidth, 320),
+        height: Math.max(document.documentElement.clientHeight, 480),
+        margin: 0,
+        minScale: 1,
+        maxScale: 1
+      };
+    }
+
+    Reveal.initialize(Object.assign({
       hash: true,
       hashOneBasedIndex: true,
       slideNumber: "c/t",
-      width: 1280,
-      height: 800,
-      margin: 0.07,
       center: false,
       transition: "none",
       backgroundTransition: "none",
       controls: true,
       progress: true,
       pdfSeparateFragments: false
+    }, viewportSize()));
+
+    let resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        Reveal.configure(viewportSize());
+      }, 120);
     });
   </script>
 </body>
